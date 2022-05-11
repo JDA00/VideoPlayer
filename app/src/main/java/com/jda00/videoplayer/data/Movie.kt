@@ -1,4 +1,4 @@
-package com.jda00.videoplayer
+package com.jda00.videoplayer.data
 
 /**
 Model data class
