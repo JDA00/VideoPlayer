@@ -1,0 +1,1 @@
+Video player application using MVVM design pattern and Compose. Makes API calls and serializes the Json retrieved then presents the videos as well as formatting and displaying their detail fields from markdown. Uses Retrofit, ExoPlayer and Markwon. 
