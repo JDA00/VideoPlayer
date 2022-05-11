@@ -23,7 +23,6 @@ Application entry point
 
 class MainActivity : ComponentActivity() {
 
-
   private val mainViewModel = MainViewModel()
 
 

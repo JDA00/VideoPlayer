@@ -25,9 +25,10 @@ import com.google.android.exoplayer2.ui.StyledPlayerView
 import com.jda00.videoplayer.data.Movie
 import com.jda00.videoplayer.ui.Typography
 import com.jda00.videoplayer.util.Constants
+import io.noties.markwon.Markwon
 
 /**
-UI Composables
+UI Composables and application logic
  */
 
 
@@ -129,6 +130,21 @@ fun ExoPlayer(
             player = exoPlayer
 
 
+
+
+            /* Ran out of time with the ExoPlayer docs to experiment more but suspect answer
+            lies in doing more with overriding XMLs. I suspect this would be a lot easier without using Compose.
+            */
+
+//            if (videoIndex == 0) {
+//                setShowPreviousButton(false)
+//            } else setShowPreviousButton(true)
+
+
+
+
+
+
         }
     })
 
@@ -157,6 +173,14 @@ fun TextCard(movies: List<Movie>, videoIndex: Int, onIndexChange: (Int) -> Unit)
 
     Log.i("CURRENT_INDEX_TEXT ", "$videoIndex")
 
+    val context = LocalContext.current
+
+    // obtain an instance of Markwon
+    val markwon: Markwon = Markwon.create(context)
+
+    // parse markdown and create styled text
+    var markdown = markwon.toMarkdown(movies[videoIndex].description)
+
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -183,7 +207,7 @@ fun TextCard(movies: List<Movie>, videoIndex: Int, onIndexChange: (Int) -> Unit)
 
 
         Text(
-            text = movies[videoIndex].description,
+            text = markdown.toString(),
             modifier = Modifier
                 .padding(start = 10.dp, top = 15.dp, end = 10.dp)
                 .verticalScroll(rememberScrollState()),
@@ -193,4 +217,5 @@ fun TextCard(movies: List<Movie>, videoIndex: Int, onIndexChange: (Int) -> Unit)
     }
 
 }
+
 
