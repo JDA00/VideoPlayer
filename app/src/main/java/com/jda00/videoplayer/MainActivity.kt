@@ -17,11 +17,26 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-
-      VideoScreen()
-
-
+      TopBar()
+      TextCard()
     }
   }
 }
 
+@Preview
+@Composable
+fun TopBar() {
+  TopAppBar(title = { Text(text = "Video Player") })
+}
+
+@Preview
+@Composable
+fun TextCard() {
+  Column(
+    modifier = Modifier.fillMaxSize(),
+    verticalArrangement = Arrangement.Center,
+    horizontalAlignment = Alignment.CenterHorizontally
+  ) {
+    Text(text = "Hello world!")
+  }
+}
