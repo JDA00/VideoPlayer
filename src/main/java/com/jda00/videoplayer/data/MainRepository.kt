@@ -4,7 +4,7 @@ import android.util.Log
 import com.jda00.videoplayer.network.RetrofitService
 
 /**
-Retrieves Json objects from Retrofit
+Retrieves list of objects from Retrofit
  */
 
 
